@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+
+             x:Class="TimeCopyIconMaui.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="5"
+            Padding="0,0"
+            VerticalOptions="StartAndExpand">
+
+            <Label
+                Text="Get Time"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="12"
+                Margin="0"
+                Padding="0"
+                HorizontalOptions="Center" />
+
+            <HorizontalStackLayout
+                Spacing="5"
+                Padding="0"
+                Margin="0"
+                HorizontalOptions="Center">
+
+                <Button
+                    x:Name="GetUnixTimeBtn"
+                    FontSize="14"
+                    Text="Unixtime"
+                    SemanticProperties.Hint="Current Unixtime numetic"
+                    Clicked="GetUnixTimeBtn_Clicked"
+                    />
+
+                <Button
+                    x:Name="GetDateTimeBtn"
+                    FontSize="14"
+                    Text="Y/m/d H:i:s"
+                    SemanticProperties.Hint="Current Unixtime numetic"
+                    Clicked="GetDateTimeBtn_Clicked"
+                    />
+
+                <Button
+                    x:Name="GetDateTime2Btn"
+                    FontSize="14"
+                    Text="YmdHis"
+                    SemanticProperties.Hint="Current Unixtime numetic"
+                    Clicked="GetDateTime2Btn_Clicked"
+                />
+            </HorizontalStackLayout>
+
+            <Frame
+                Margin="5,3"
+                Padding="5,10"
+                BorderColor="Gray"
+                CornerRadius="5">
+                
+                <VerticalStackLayout
+                    Padding="0">
+                    <Label
+                        Text="UnixTimeをLocalTimeに"
+                        SemanticProperties.HeadingLevel="Level1"
+                        FontSize="14"
+                        FontAttributes="Bold"
+                        Margin="0"
+                        HorizontalOptions="Start" />
+                    <BoxView Color="Gray" 
+                            HeightRequest="2"
+                            Margin="0,5,0,5"
+                            HorizontalOptions="Fill" />
+                    <Entry Placeholder="Unixtime numeric" 
+                           x:Name="FromUnixtime"
+                           Text=""
+                           Completed="FromUnixtime_Completed"
+                           Unfocused="FromUnixtime_Unfocused"
+                          
+                           />
+                    <Label
+                        Text="↓"
+                        SemanticProperties.HeadingLevel="Level1"
+                        FontSize="14"
+                        HorizontalOptions="Center" />
+                    <Entry Placeholder="LocalTime Y-m-d H:i:s" 
+                           x:Name="Tonixtime"
+                           Focused="Tonixtime_Focused"
+                           TextChanged="Tonixtime_TextChanged"
+                         
+                           IsReadOnly="True"
+                           />
+                </VerticalStackLayout>
+                
+            </Frame>
+
+
+            
+            <Frame
+                Margin="5,3"
+                Padding="5,10"
+                BorderColor="Gray"
+                CornerRadius="5">
+                
+                <VerticalStackLayout
+                    Padding="0">
+                    <Label
+                        Text="ISO8601 to unixtime"
+                        SemanticProperties.HeadingLevel="Level1"
+                        FontSize="14"
+                        FontAttributes="Bold"
+                        Margin="0"
+                        HorizontalOptions="Start" />
+                    <BoxView Color="Gray" 
+                            HeightRequest="2"
+                            Margin="0,5,0,5"
+                            HorizontalOptions="Fill" />
+                    <Entry Placeholder="ISO8601 " 
+                           x:Name="textBoxFromISO8601"
+                           Text=""
+                           Unfocused="textBoxFromISO8601_Unfocused"
+                          
+                           />
+                    <Label
+                        Text="↓"
+                        SemanticProperties.HeadingLevel="Level1"
+                        FontSize="14"
+                        HorizontalOptions="Center" />
+                    <Entry Placeholder="LocalTime Y-m-d H:i:s" 
+                           x:Name="textBoxISO8601ToUnixtime"
+                           IsReadOnly="True"
+                           />
+
+                    <Label x:Name="textBoxToUnixMessage"
+                           Text=""
+                           ></Label>
+                </VerticalStackLayout>
+                
+            </Frame>
+            <Entry
+                x:Name="textBoxISO8601Example"
+                                          Text=""
+                Focused="textBoxISO8601Example_Focused" />
+          
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
