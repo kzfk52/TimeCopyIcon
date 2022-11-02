@@ -6,5 +6,5 @@
 
 ## Author
 
-[kzfk](https://github.com/kzfk)
+[FUKUDA Kazuyuki](https://github.com/kzfk)
 
