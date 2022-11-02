@@ -2,7 +2,9 @@
 
 ## Warning
 
-macos-catalyst is broken...
+macos-catalyst environment is broken.
+
+current working os is windows only.
 
 ### License
 
