@@ -1,10 +1,7 @@
 # TimeCopyIcon
 
-## Licence
+### License
 
-[MIT](https://github.com/tcnksm/tool/blob/master/LICENCE)
-
-## Author
-
-[FUKUDA Kazuyuki](https://github.com/kzfk)
+Copyright © 2022, [FUKUDA Kazuyuki](https://github.com/kzfk).
+Released under the [MIT License](LICENSE).
 
