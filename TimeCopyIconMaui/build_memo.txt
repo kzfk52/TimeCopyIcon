@@ -1,0 +1,13 @@
+
+rem /p:GenerateAppInstallerFile=xx /p:AppInstallerUri=xx /p:HoursBetweenUpdateChecks=xx /p:AppxPackageDir=xx /p:Platform=xx /p:Configuration=xxn /p:UapAppxPackageBuildMode=xx /p:AppxBundle=xx /p:PackageCertificateKeyFile=xx /p:PackageCertificatePassword=xx /p:PackageCertificateThumbprint=xx /p:AppxPackageSigningEnabled=xx
+
+rem .\TimeCopyIconMaui\bin\Distibution\win10-x64\AppPackages\TimeCopyIconMaui_1.0.0.0_Test\TimeCopyIconMaui_1.0.0.0_x64.msix
+dotnet publish -c release .\TimeCopyIconMaui.csproj -f net6.0-windows10.0.19041.0 /p:PublishProfile=Properties\PublishProfiles\MSIX-win10-x64.pubxml /p:AppInstallerUri=https://update-msix-package.kzfk.win/packages/TinyCopyIconMaui/win10-x64/AppPackages/
+
+
+rem .\TimeCopyIconMaui\bin\Distibution\win10-arm64\AppPackages\TimeCopyIconMaui_1.0.0.0_Test\TimeCopyIconMaui_1.0.0.0_arm64.msix
+dotnet publish -c release .\TimeCopyIconMaui.csproj -f net6.0-windows10.0.19041.0 /p:PublishProfile=Properties\PublishProfiles\MSIX-win10-ARM64.pubxml /p:AppInstallerUri=https://update-msix-package.kzfk.win/packages/TinyCopyIconMaui/win10-arm64/AppPackages/
+
+
+
+rem "C:\Program Files (x86)\Windows Kits\10\bin\10.0.17763.0\x86\MakeAppx.exe" bundle /d .\bin\Distibution\win10-arm64\AppPackages\ /p bin\Distibution\win10-arm64\AppPackages\Kzfk.App.TinyCopyIconMaui_ypbqd751e6060.msixbundle

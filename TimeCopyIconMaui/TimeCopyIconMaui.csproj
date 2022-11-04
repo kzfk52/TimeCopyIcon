@@ -34,6 +34,8 @@
 		<Title>TimeCopyIconMaui</Title>
 		<PlatformTarget>AnyCPU</PlatformTarget>
 
+		<Platforms>AnyCPU;arm64;x64</Platforms>
+		<RuntimeIdentifier>win10-$(Platform)</RuntimeIdentifier>
 
 		<GenerateAppInstallerFile>True</GenerateAppInstallerFile>
 		<AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
@@ -45,8 +47,7 @@
 		<GenerateTestArtifacts>True</GenerateTestArtifacts>
 		<AppInstallerUri>https://update-msix-package.kzfk.win/packages/TinyCopyIconMaui/AppPackages/</AppInstallerUri>
 		<HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
-		<DefaultLanguage>ja_JP</DefaultLanguage>
-		<Platforms>AnyCPU;ARM64;x64</Platforms>
+		<DefaultLanguage>ja-jp</DefaultLanguage>
 	</PropertyGroup>
 
 	<ItemGroup>
