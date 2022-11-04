@@ -33,17 +33,20 @@
 		<Copyright>2022 FUKUDA Kazuyuki</Copyright>
 		<Title>TimeCopyIconMaui</Title>
 		<PlatformTarget>AnyCPU</PlatformTarget>
+
+
 		<GenerateAppInstallerFile>True</GenerateAppInstallerFile>
 		<AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
 		<PackageCertificateThumbprint>3FE312BC51954C55174381D253D0350BCA7CDC82</PackageCertificateThumbprint>
 		<AppxPackageSigningTimestampServerUrl>http://time.certum.pl</AppxPackageSigningTimestampServerUrl>
 		<AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
-		<AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+		<AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
 		<AppxSymbolPackageEnabled>True</AppxSymbolPackageEnabled>
 		<GenerateTestArtifacts>True</GenerateTestArtifacts>
-		<AppInstallerUri>https://update-msix-package.kzfk.win/packages/TinyCopyIconMaui</AppInstallerUri>
+		<AppInstallerUri>https://update-msix-package.kzfk.win/packages/TinyCopyIconMaui/AppPackages/</AppInstallerUri>
 		<HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
 		<DefaultLanguage>ja_JP</DefaultLanguage>
+		<Platforms>AnyCPU;ARM64;x64</Platforms>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -69,10 +72,6 @@
 	  <PackageReference Include="OtpSharp.Core" Version="1.0.0" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <None Remove="appsettings.json" />
-	  <None Remove="Extends\" />
-	</ItemGroup>
 
 	<ItemGroup>
 	  <EmbeddedResource Include="appsettings.json">
