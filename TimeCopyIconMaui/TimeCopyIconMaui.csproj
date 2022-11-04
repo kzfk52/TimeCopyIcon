@@ -32,11 +32,10 @@
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 		<Copyright>2022 FUKUDA Kazuyuki</Copyright>
 		<Title>TimeCopyIconMaui</Title>
-		<PlatformTarget>AnyCPU</PlatformTarget>
+		<PlatformTarget>x64</PlatformTarget>
 
-		<Platforms>AnyCPU;arm64;x64</Platforms>
+		<Platforms>x64;arm64</Platforms>
 		<RuntimeIdentifier>win10-$(Platform)</RuntimeIdentifier>
-
 		<GenerateAppInstallerFile>True</GenerateAppInstallerFile>
 		<AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
 		<PackageCertificateThumbprint>3FE312BC51954C55174381D253D0350BCA7CDC82</PackageCertificateThumbprint>
