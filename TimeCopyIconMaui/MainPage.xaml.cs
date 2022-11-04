@@ -3,18 +3,88 @@ using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using TimeCopyIconMaui.Extends;
 using TimeCopyIconMaui.Utility;
+using OtpSharp;
+using System.Text;
+using System.Timers;
+using Microsoft.Extensions.Configuration;
 
 namespace TimeCopyIconMaui
 {
     public partial class MainPage : ContentPage
     {
+        IConfiguration configuration;
+        System.Timers.Timer timer;
+        string secretKey = "";
+
         public MainPage()
         {
             InitializeComponent();
 
+            otpText.IsVisible = false;
+
             //var now = DateTimeOffset.Now;
             //textBoxISO8601Example.SetTextSafe(now.ToString("yyyy-MM-ddTHH:mm:ss") + now.ToString("zzz").Replace(":", ""));
 
+            configuration = MauiProgram.Services.GetService<IConfiguration>();
+            //configuration = config;
+
+            var settings = configuration.GetRequiredSection("Settings").Get<Settings.Settings>();
+
+            timer = new System.Timers.Timer() { 
+                Interval=1000,
+                AutoReset=true,
+                Enabled=false,
+             
+            };
+            timer.Elapsed += Timer_Elapsed;
+            if (!string.IsNullOrEmpty(settings.TOTP.Secret))
+            {
+                secretKey = settings.TOTP.Secret;
+            }
+        }
+
+        private void Timer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+
+            var totp = new Totp(Encoding.UTF8.GetBytes(secretKey));
+            var totpCode = totp.ComputeTotp(DateTime.UtcNow);
+            var remainingSeconds = totp.RemainingSeconds(DateTime.UtcNow);
+            otpText.SetTextSafe($"{totpCode} : {remainingSeconds}sec");
+        }
+
+
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            //a piece of code specified
+            Debug.WriteLine("Call OnAppearing");
+            if(secretKey.Length > 0)
+            {
+                timer.Enabled = true;
+                otpText.IsVisible = true;
+            }
+                
+        }
+
+        //protected override void OnDisappearing()
+        //{
+        //    base.OnDisappearing();
+        //    //a piece of code specified
+        //    Debug.WriteLine("Call OnDisappearing");
+        //    timer.Enabled = false;
+        //    otpText.SetTextSafe("-sleep-");
+        //}
+
+
+        private async void CalcCodeClicked(object sender, EventArgs e)
+        {
+
+            var totp = new Totp(Encoding.UTF8.GetBytes(secretKey));
+            var totpCode = totp.ComputeTotp(DateTime.UtcNow);
+            var remainingSeconds = totp.RemainingSeconds(DateTime.UtcNow);
+            await Clipboard.SetTextAsync(totpCode);
+            await NotifyHelper.Notify("TOTP", $"{totpCode} をコピーしました。有効期限：{remainingSeconds}秒");
         }
 
         private async void GetUnixTimeBtn_Clicked(object sender, EventArgs e)

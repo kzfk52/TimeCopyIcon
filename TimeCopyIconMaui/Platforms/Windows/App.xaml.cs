@@ -23,7 +23,7 @@ namespace TimeCopyIconMaui.WinUI
 
             // https://developers-trash.com/archives/974
             int WindowWidth = 420;
-            int WindowHeight = 650;
+            int WindowHeight = 700;
             Microsoft.Maui.Handlers.WindowHandler.Mapper.AppendToMapping(nameof(IWindow), (handler, view) =>
             {
                 var mauiWindow = handler.VirtualView;
